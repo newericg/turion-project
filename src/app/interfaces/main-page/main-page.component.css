@@ -1,0 +1,140 @@
+.container {
+    /* margin: 25px; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    min-height: 100%;
+    height: auto;
+    color: white;
+}
+
+form {
+    background-color: rgba(199, 199, 255, 0.116);
+    padding: 25px;
+    border-radius: 15px;
+    min-height: 70%;
+    height: auto;
+    width: 28rem;
+}
+
+
+.form-group {
+    position: relative;
+    margin: 25px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: center;
+}
+
+label {
+    margin-right: 15px;
+}
+
+input {
+    outline: none;
+    color: blue;
+    background: transparent;
+    flex: 1 0 auto;
+    font-weight: 300;
+    font-size: 16px;
+    padding: 10px;
+    width: 90%;
+    border: 1px solid rgb(41, 10, 180);
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    background: rgba(20, 20, 20, 0);
+    color: white;
+    outline: none;
+}
+
+.bi {
+    position: absolute;
+    right: 0;
+    margin-right: 45px;
+    margin-top: 15px;
+    cursor: pointer;
+}
+
+
+.btn-div {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.create-user-btn {
+    padding: 10px;
+    /* height: 25px; */
+    width: 60%;
+    margin: 55px auto;
+    border: none;
+    border-radius: 5px;
+    color: blue;
+    background-color: white;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 500ms;
+}
+
+.create-user-btn:hover {
+    background-color: blue;
+    color: white;
+    width: 70%;
+}
+
+.create-user-btn:disabled {
+    background-color: gray;
+    color: black;
+    cursor: not-allowed;
+    width: 70%;
+}
+
+.error-div {
+    color: red;
+}
+
+p {
+    margin: 5px 0;
+}
+
+select {
+    appearance: none;
+    border: 0;
+    outline: 0;
+    font: inherit;
+    width: 18rem;
+    padding: 1rem 4rem 1rem 1rem;
+    background: url('https://upload.wikimedia.org/wikipedia/commons/9/9d/Caret_down_font_awesome_whitevariation.svg') no-repeat right 0.8em center / 1.4em,
+        linear-gradient(to left, rgba(255, 255, 255, 0.034) 3em, rgba(255, 255, 255, 0.027) 3em);
+    color: white;
+    border-radius: 0.25em;
+    box-shadow: 0 0 1em 0 rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+
+    &::-ms-expand {
+        display: none;
+    }
+
+    &:focus {
+        outline: none;
+    }
+
+    option {
+        color: black;
+        background-color: rgba(255, 255, 255, 0.144);
+    }
+}
+
+
+
+
+
+@media screen and (max-width: 480px) {
+    form {
+        width: 80%;
+    }
+}

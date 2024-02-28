@@ -1,0 +1,84 @@
+<div class="container">
+    <h1>Cadastro</h1>
+    <form [formGroup]="formCliente">
+        <div class="form-group">
+            <label for="nome">Nome</label>
+            <i class="bi bi-x" (click)="clearInput('nome')"></i>
+            <input type="text" class="form-control" formControlName="nome" placeholder="Digite seu nome">
+        </div>
+        @if (nome?.touched && nome?.errors?.['required']) {
+            <div class="error-div">
+                <p>Nome é obrigatório.</p>
+            </div>
+            }
+
+        <div class="form-group">
+            <label for="celular">Celular</label>
+            <input (keypress)="numberOnly($event)" maxlength="15" class="form-control" formControlName="celular" [value]="formCliente.get('celular')?.value | phone"
+                placeholder="Digite seu celular">
+        </div>
+        @if (celular?.touched && celular?.errors?.['required']) {
+            <div class="error-div">
+                <p>Celular é obrigatório.</p>
+            </div>
+            }
+
+        <div class="form-group">
+            <label for="tipo">Departamento</label>
+            <select formControlName="departamento" class="form-control" placeholder="Escolha seu departamento"
+                [value]="1">
+                @for (department of departamentos; track departamentos; let idx = $index) {
+                <option [value]="department.name"> {{ department.name }}</option>
+                }
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="email">Email</label>
+            <input class="form-control" formControlName="email" placeholder="Digite seu email">
+        </div>
+        @if (email?.touched && email?.errors?.['required']) {
+            <div class="error-div">
+                <p>Email é obrigatório.</p>
+            </div>
+            }
+
+            @if (email?.touched && email?.errors?.['pattern']) {
+            <div class="error-div">
+                <p>
+                    Inclua um "&#64;" no endereço de e-mail.
+                </p>
+
+            </div>
+            }
+
+        <div class="form-group password-form">
+            <label for="senha">Senha</label>
+            <i (click)="showPassword()" [class]="passwordIconClass" id="togglePassword"></i>
+            <input [type]="passwordType" class="form-control" formControlName="senha" placeholder="Digite sua senha">
+
+
+        </div>
+        @if (senha?.touched && senha?.errors?.['minlength']) {
+        <div class="error-div">
+            <p>
+                Use no mínimo 8 caracteres
+            </p>
+
+        </div>
+        @if (senha?.touched && senha?.errors?.['required']) {
+        <div class="error-div">
+            <p>Senha é obrigatório.</p>
+        </div>
+        }
+        }
+
+        <div class="btn-div">
+            <button [disabled]="!formCliente.valid" type="button" class="create-user-btn"
+                (click)="onSubmit()">Criar</button>
+        </div>
+
+
+
+    </form>
+</div>
